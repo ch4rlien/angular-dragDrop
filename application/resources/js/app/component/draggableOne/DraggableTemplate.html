@@ -1,0 +1,13 @@
+<div ng-controller="DraggableController">
+    <div class="thumbnail" data-drop="true" data-jqyoui-options="" jqyoui-droppable="{onDrop:'onItemDrop'}" style='height:200px;'></div>
+    <span
+        data-drag="true"
+        data-jqyoui-options='{
+            "revert": "invalid",
+            "cursor": "move",
+            "revert": true
+        }'
+        jqyoui-draggable="{animate:true}"
+    >I can be dragged between</span>
+    <div class="thumbnail" data-drop="true" data-jqyoui-options="" jqyoui-droppable="{onDrop:'onItemDrop'}" style='height:200px;'></div>
+</div>
