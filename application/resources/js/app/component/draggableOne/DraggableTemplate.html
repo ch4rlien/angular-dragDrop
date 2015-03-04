@@ -1,9 +1,16 @@
 <div ng-controller="DraggableController">
-    <div class="thumbnail" data-drop="true" style='height:200px;'></div>
-    <ul data-as-sortable="dragControlListeners" data-ng-model="items">
-        <li data-ng-repeat="item in items" data-as-sortable-item>
-            <div data-as-sortable-item-handle>{{ item.text }}</div>
-        </li>
-    </ul>
-    <div class="thumbnail" data-drop="true" style='height:200px;'></div>
+    <div class="thumbnail" data-drop="true" style='height:200px;'>
+        <div class="sortable-row" as-sortable="dragControlListeners" ng-model="itemsList" style='height:200px;'>
+            <div ng-repeat="item in itemsList" as-sortable-item>
+                <div class="unselectable" as-sortable-item-handle>{{item.text}}</div>
+            </div>
+        </div>
+    </div>
+    <div class="thumbnail" data-drop="true" style='height:200px;'>
+        <div class="sortable-row" as-sortable="dragControlListeners" ng-model="shopping" style='height:200px;'>
+            <div ng-repeat="item in shopping" as-sortable-item>
+                <div class="unselectable" as-sortable-item-handle>{{item.text}}</div>
+            </div>
+        </div>
+    </div>
 </div>

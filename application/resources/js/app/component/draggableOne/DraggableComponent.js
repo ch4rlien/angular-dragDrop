@@ -6,20 +6,26 @@ define([
         .controller('DraggableController', function($scope){
             $scope.dragControlListeners = {
                 accept: function (sourceItemHandleScope, destSortableScope) {
-                    console.log('asfasf')
                     return true;
                 },
-                itemMoved: function (event) {//Do what you want
-                    console.log('asfasf')
+                itemMoved: function (event) {
                 },
-                orderChanged: function (event) {//Do what you want
-                    console.log('asfasf')
+                orderChanged: function (event) {
                 },
-                containment: '#board'//optional param.
+                dragEnd: function() {
+                    console.log(arguments);
+                }
             };
-            $scope.items = [{
-                text: 'asdf'
-            }]
+            $scope.itemsList = [
+                {
+                    text: 'one'
+                },
+                {
+                    text: 'two'
+                }];
+            $scope.shopping = [{
+                text: 'none'
+            }];
         })
         .directive('draggableOne', function(){
             return {

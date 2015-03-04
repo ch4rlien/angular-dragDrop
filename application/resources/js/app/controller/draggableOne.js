@@ -3,5 +3,6 @@ define([
     'app/component/draggableOne/DraggableComponent'
 ], function (app) {
     app.controller('DraggableOneCtrl', function ($scope) {
+
     });
 });
