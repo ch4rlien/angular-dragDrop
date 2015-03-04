@@ -12,6 +12,7 @@ requirejs.config({
 		'angular-cookies': 'lib/angular/angular-cookies',
 		'angular-ui.router': 'lib/angular-ui-router/angular-ui-router',
 		'uiBootstrap': 'lib/ui-bootstrap/ui-bootstrap-tpls-0.12.1',
+        'fontAwesome': 'lib/angular-fontawesome',
 
         //controllers
 	    'homeController': 'app/controller/home',
@@ -26,6 +27,7 @@ requirejs.config({
 		'angular-ui.router': {deps: ['angular']},
         'ngSortable': {deps: ['angular']},
 		'uiBootstrap': {deps: ['angular']},
+        'fontAwesome': {deps: ['angular']},
 		underscore: {
 			exports: '_'
 		}
