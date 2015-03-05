@@ -16,6 +16,11 @@ define([
                     console.log(arguments);
                 }
             };
+
+            $scope.itemClick = function(item){
+                item.collapsed = !item.collapsed;
+            };
+
             $scope.itemsList = [
                 {
                     text: 'one'
@@ -24,7 +29,16 @@ define([
                     text: 'two'
                 }];
             $scope.shopping = [{
-                text: 'none'
+                text: 'none',
+                collapsed: false,
+                list:[
+                    {
+                        text: 'rohlik'
+                    },
+                    {
+                        text: 'parek'
+                    }
+                ]
             }];
         })
         .directive('draggableOne', function(){

@@ -5,6 +5,10 @@ define([
 	app
 		.controller('HelloController', function($scope){
 			$scope.controllerMessage = "Behold!";
+            $scope.itemClick - function(){
+                console.log('asasf');
+                console.log(arguments);
+            };
 		})
 		.directive('myHello', function(){
 			return {
