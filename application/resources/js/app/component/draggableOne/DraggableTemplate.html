@@ -1,22 +1,8 @@
-<div ng-controller="DraggableController">
-    <div class="thumbnail" data-drop="true" style='height:200px;'>
-        <div class="sortable-row" as-sortable="dragControlListeners" ng-model="itemsList" style='height:020px;'>
-            <div ng-repeat="item in itemsList" as-sortable-item>
-                <div class="unselectable" as-sortable-item-handle>{{item.text}}</div>
+<div style='padding-left: 20px;'>
+        <div class="sortable-row" as-sortable="callbacks" ng-model="family.children">
+            <div ng-repeat="child in family.children" as-sortable-item>
+                <div class="unselectable" as-sortable-item-handle ng-click="action({item:child})">{{child.name}}</div>
+                    <draggable-one family="child" collapse="child.collapsed" callbacks="callbacks" action="action(item)"/>
             </div>
         </div>
-    </div>
-    <span>Shopping list</span>
-    <div class="thumbnail" data-drop="true" style='height:200px;'>
-        <div class="sortable-row" as-sortable="dragControlListeners" ng-model="shopping" style='height:200px;'>
-            <div ng-repeat="item in shopping" as-sortable-item>
-                <div class="unselectable" as-sortable-item-handle ng-click="itemClick(item)">{{item.text}}</div>
-                <div collapse="item.collapsed" class="sortable-row" as-sortable="dragControlListeners" ng-model="item.list" style='height:200px; padding-left: 20px'>
-                    <div ng-repeat="oneItem in item.list" as-sortable-item>
-                        <div class="unselectable" as-sortable-item-handle>{{oneItem.text}}</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>

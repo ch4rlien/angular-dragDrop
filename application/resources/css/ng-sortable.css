@@ -30,3 +30,7 @@
     -moz-user-select: none;
     user-select: none;
 }
+
+.parentNode {
+    cursor: default;
+}

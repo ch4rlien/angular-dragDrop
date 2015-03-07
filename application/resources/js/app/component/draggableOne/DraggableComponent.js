@@ -1,50 +1,59 @@
 define([
     'app/main',
+    'text!app/component/draggableOne/treeDragDropTemplate.html',
     'text!app/component/draggableOne/DraggableTemplate.html'
-], function (app, template) {
+], function (app, treeDragDrop, dragTemplate) {
     app
         .controller('DraggableController', function($scope){
             $scope.dragControlListeners = {
+                text: 'adas',
                 accept: function (sourceItemHandleScope, destSortableScope) {
                     return true;
                 },
                 itemMoved: function (event) {
+                    console.log('sfseeeeed');
                 },
                 orderChanged: function (event) {
+                    console.log('sfsd');
                 },
                 dragEnd: function() {
                     console.log(arguments);
                 }
             };
-
-            $scope.itemClick = function(item){
+            $scope.treeClick = function(item){
                 item.collapsed = !item.collapsed;
             };
-
-            $scope.itemsList = [
-                {
-                    text: 'one'
-                },
-                {
-                    text: 'two'
-                }];
-            $scope.shopping = [{
-                text: 'none',
-                collapsed: false,
-                list:[
-                    {
-                        text: 'rohlik'
-                    },
-                    {
-                        text: 'parek'
-                    }
-                ]
-            }];
         })
-        .directive('draggableOne', function(){
+        .directive('treeDragDrop', function(){
             return {
-                template: template,
-                restrict: "E"
+                template: treeDragDrop,
+                restrict: "E",
+                scope: {
+                    family: '='
+                }
+            }
+        })
+        .directive('draggableOne', function($compile){
+            return {
+                template: dragTemplate,
+                restrict: "E",
+                scope: {
+                    family: '=',
+                    action: '&',
+                    callbacks: '='
+                },
+                compile: function(tElement, tAttr) {
+                    var contents = tElement.contents().remove();
+                    var compiledContents;
+                    return function(scope, iElement, iAttr) {
+                        if(!compiledContents) {
+                            compiledContents = $compile(contents);
+                        }
+                        compiledContents(scope, function(clone, scope) {
+                            iElement.append(clone);
+                        });
+                    };
+                }
             };
         })
 });
