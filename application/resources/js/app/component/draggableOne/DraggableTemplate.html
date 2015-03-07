@@ -1,8 +1,8 @@
 <div style='padding-left: 20px;'>
-        <div class="sortable-row" as-sortable="callbacks" ng-model="family.children">
-            <div ng-repeat="child in family.children" as-sortable-item>
-                <div class="unselectable" as-sortable-item-handle ng-click="action({item:child})">{{child.name}}</div>
-                    <draggable-one family="child" collapse="child.collapsed" callbacks="callbacks" action="action(item)"/>
-            </div>
+    <div class="sortable-row" as-sortable="callbacks" ng-model="family.children">
+        <div ng-repeat="child in family.children" as-sortable-item>
+            <div class="unselectable" as-sortable-item-handle ng-click="action({item:child})">{{child.name}}</div>
+                <draggable-one family="child" collapse="child.collapsed" callbacks="callbacks" action="action({item:item})"/>
         </div>
+    </div>
 </div>

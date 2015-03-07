@@ -19,6 +19,10 @@ define([
             }
         };
 
+        $scope.clicked = function(item){
+            item.collapsed = !item.collapsed;
+        };
+
         $scope.treeFamily = {
             name : "Parent",
             collapsed: false,
@@ -28,7 +32,13 @@ define([
                 children: [{
                     name : "Grandchild1",
                     collapsed: false,
-                    children: []
+                    children: [{
+                        name: 'stuff',
+                        collapsed: false
+                    }, {
+                        name: 'stuff2',
+                        collapsed: false
+                    }]
                 },{
                     name : "Grandchild2",
                     collapsed: false,

@@ -1,8 +1,8 @@
-<div ng-controller="DraggableController">
-    <div class="parentNode" ng-click="treeClick(family)">{{family.name}}</div>
+<div>
+    <div class="parentNode" ng-click="action({item:family})">{{family.name}}</div>
     <draggable-one
             family="family"
-            action="treeClick(item)"
+            action="action({item:item})"
             collapse="family.collapsed"
             callbacks="dragControlListeners"
             />

@@ -20,16 +20,17 @@ define([
                     console.log(arguments);
                 }
             };
-            $scope.treeClick = function(item){
-                item.collapsed = !item.collapsed;
-            };
+            //$scope.treeClick = function(item){
+            //    item.collapsed = !item.collapsed;
+            //};
         })
         .directive('treeDragDrop', function(){
             return {
                 template: treeDragDrop,
                 restrict: "E",
                 scope: {
-                    family: '='
+                    family: '=',
+                    action: '&'
                 }
             }
         })
